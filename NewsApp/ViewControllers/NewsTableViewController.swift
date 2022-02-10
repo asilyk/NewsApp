@@ -13,7 +13,7 @@ class NewsTableViewController: UITableViewController {
 
     // MARK: - Private Properties
     private var newsData: NewsData!
-    private var link: String{
+    private var link: String {
         "https://api.nytimes.com/svc/mostpopular/v2/viewed/\(period).json?api-key=qDyV9W9s9JO8ALEHjJqOBGPCKwEDdcql"
     }
 
@@ -44,7 +44,7 @@ class NewsTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
 
         content.text = newsData?.results?[indexPath.row].title ?? "No title"
-        
+
         let author = newsData?.results?[indexPath.row].byline ?? "No author"
         let date = newsData?.results?[indexPath.row].published_date ?? "No date"
         content.secondaryText = "\(author)\n\(date)"
@@ -64,7 +64,7 @@ class NewsTableViewController: UITableViewController {
         detailedNewsVC.result = newsData?.results?[indexPath.row]
     }
 
-    //MARK: - Private Methods
+    // MARK: - Private Methods
     private func chooseImage(for subsection: String) -> UIImage? {
         let subsection = Subsection(rawValue: subsection)
         let image: String
