@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fZN-0E-3kJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Most popular articles-->
+        <scene sceneID="4HH-lS-sfN">
+            <objects>
+                <viewController id="NkB-Jw-WoL" customClass="MainViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g2q-B9-Fiu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="cRV-bt-Stm">
+                                <rect key="frame" x="119.5" y="305" width="175" height="286"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Par-yl-2aL">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Today">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="OOe-cN-lpg" kind="show" identifier="todayDataSegue" id="q9P-xT-tVx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-pE-Fx5">
+                                        <rect key="frame" x="0.0" y="119" width="175" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="This week">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="OOe-cN-lpg" kind="show" identifier="thisWeekDataSegue" id="7BF-FU-InJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obi-0K-6z3">
+                                        <rect key="frame" x="0.0" y="238" width="175" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="This month">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="OOe-cN-lpg" kind="show" identifier="thisMonthDataSegue" id="d7b-9T-77X"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="otB-Nx-FI2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hRP-k3-OXL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cRV-bt-Stm" firstAttribute="centerY" secondItem="g2q-B9-Fiu" secondAttribute="centerY" id="QG8-oG-PDD"/>
+                            <constraint firstItem="cRV-bt-Stm" firstAttribute="centerX" secondItem="g2q-B9-Fiu" secondAttribute="centerX" id="mpK-2D-sGP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Most popular articles" id="W0Z-fO-Ezt"/>
+                    <connections>
+                        <outlet property="thisMonthButton" destination="Obi-0K-6z3" id="hfw-lr-WSB"/>
+                        <outlet property="thisWeekButton" destination="J9s-pE-Fx5" id="2Tr-Ed-s7r"/>
+                        <outlet property="todayButton" destination="Par-yl-2aL" id="IW7-7t-VX7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lm-Ae-jbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-607" y="-498"/>
+        </scene>
+        <!--Most popular articles-->
+        <scene sceneID="9E2-CP-YEN">
+            <objects>
+                <tableViewController id="OOe-cN-lpg" customClass="NewsTableViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ytj-PY-5s0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" id="1Cu-bD-AgQ">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Cu-bD-AgQ" id="e1U-px-gM1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tW8-yb-bcz" kind="show" id="93o-9H-DY2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OOe-cN-lpg" id="tiO-5n-IhK"/>
+                            <outlet property="delegate" destination="OOe-cN-lpg" id="VoW-e3-riS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Most popular articles" id="n4c-sN-Pwq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bf-j7-sTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="-498"/>
+        </scene>
+        <!--Detailed News View Controller-->
+        <scene sceneID="5HL-xw-Kvs">
+            <objects>
+                <viewController id="tW8-yb-bcz" customClass="DetailedNewsViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IAb-VA-1D3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a3L-uG-Xwa">
+                                <rect key="frame" x="32" y="156" width="350" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abstract" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vu1-mu-gv3">
+                                <rect key="frame" x="32" y="334" width="350" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VXj-0k-Yus">
+                                <rect key="frame" x="32" y="218" width="350" height="52"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="byline" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8ha-mQ-9kJ">
+                                        <rect key="frame" x="155" y="0.0" width="40.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="published_date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dcr-TK-uh2">
+                                        <rect key="frame" x="122" y="34" width="106" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="d9g-m3-8w4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vu1-mu-gv3" firstAttribute="top" secondItem="VXj-0k-Yus" secondAttribute="bottom" constant="64" id="EJ4-jO-0nh"/>
+                            <constraint firstItem="a3L-uG-Xwa" firstAttribute="top" secondItem="d9g-m3-8w4" secondAttribute="top" constant="16" id="P2p-Tg-cqq"/>
+                            <constraint firstItem="VXj-0k-Yus" firstAttribute="leading" secondItem="d9g-m3-8w4" secondAttribute="leading" constant="32" id="T2z-7C-icm"/>
+                            <constraint firstItem="a3L-uG-Xwa" firstAttribute="leading" secondItem="d9g-m3-8w4" secondAttribute="leading" constant="32" id="aVt-kE-Nvt"/>
+                            <constraint firstItem="d9g-m3-8w4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vu1-mu-gv3" secondAttribute="bottom" constant="16" id="fGQ-sm-vuy"/>
+                            <constraint firstItem="d9g-m3-8w4" firstAttribute="trailing" secondItem="vu1-mu-gv3" secondAttribute="trailing" constant="32" id="irW-Xg-vw9"/>
+                            <constraint firstItem="vu1-mu-gv3" firstAttribute="leading" secondItem="d9g-m3-8w4" secondAttribute="leading" constant="32" id="nki-3z-41e"/>
+                            <constraint firstItem="d9g-m3-8w4" firstAttribute="trailing" secondItem="VXj-0k-Yus" secondAttribute="trailing" constant="32" id="pIy-cV-dSA"/>
+                            <constraint firstItem="VXj-0k-Yus" firstAttribute="top" secondItem="a3L-uG-Xwa" secondAttribute="bottom" constant="32" id="sHo-Yk-DOg"/>
+                            <constraint firstItem="d9g-m3-8w4" firstAttribute="trailing" secondItem="a3L-uG-Xwa" secondAttribute="trailing" constant="32" id="vma-q5-2dp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1rK-UB-Ri6"/>
+                    <connections>
+                        <outlet property="abstractLabel" destination="vu1-mu-gv3" id="q2d-uT-t09"/>
+                        <outlet property="bylineLabel" destination="8ha-mQ-9kJ" id="7X3-8P-jSw"/>
+                        <outlet property="dateLabel" destination="Dcr-TK-uh2" id="k8S-Yj-35N"/>
+                        <outlet property="titleLabel" destination="a3L-uG-Xwa" id="Fbb-fA-iKC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bLH-qs-EBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="-498"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q8j-fx-bzQ">
+            <objects>
+                <navigationController id="fZN-0E-3kJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="HN0-iV-idk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NkB-Jw-WoL" kind="relationship" relationship="rootViewController" id="EOq-XF-56w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DO2-f1-Bf6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1657" y="-498"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="q9P-xT-tVx"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
