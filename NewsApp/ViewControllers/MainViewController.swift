@@ -9,9 +9,9 @@ import UIKit
 
 class MainViewController: UIViewController {
     // MARK: - IB Outlets
-    @IBOutlet var todayButton: UIButton!
-    @IBOutlet var thisWeekButton: UIButton!
-    @IBOutlet var thisMonthButton: UIButton!
+    @IBOutlet private var todayButton: UIButton!
+    @IBOutlet private var thisWeekButton: UIButton!
+    @IBOutlet private var thisMonthButton: UIButton!
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
