@@ -5,8 +5,6 @@
 //  Created by Alexander on 09.02.2022.
 //
 
-import Foundation
-
 enum Subsection: String {
     case politics = "Politics"
     case olympics = "Olympics"
