@@ -15,6 +15,17 @@ enum Subsection: String {
     case media = "Media"
     case music = "Music"
     case television = "Television"
+
+    var image: String {
+        switch self {
+        case .politics: return "person"
+        case .olympics: return "sportscourt"
+        case .europe, .africa: return "globe"
+        case .media: return "play"
+        case .music: return "music.note"
+        case .television: return "tv"
+        }
+    }
 }
 
 struct DataResult: Decodable {

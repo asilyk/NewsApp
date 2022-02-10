@@ -49,8 +49,8 @@ class NewsTableViewController: UITableViewController {
         let date = newsData?.results?[indexPath.row].published_date ?? "No date"
         content.secondaryText = "\(author)\n\(date)"
 
-        let subsection = newsData?.results?[indexPath.row].subsection ?? ""
-        content.image = chooseImage(for: subsection)
+        let subsection = Subsection(rawValue: newsData?.results?[indexPath.row].subsection ?? "")
+        content.image = UIImage(systemName: subsection?.image ?? "newspaper")
 
         cell.contentConfiguration = content
         return cell
@@ -62,21 +62,5 @@ class NewsTableViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
         detailedNewsVC.result = newsData?.results?[indexPath.row]
-    }
-
-    // MARK: - Private Methods
-    private func chooseImage(for subsection: String) -> UIImage? {
-        let subsection = Subsection(rawValue: subsection)
-        let image: String
-        switch subsection {
-        case .politics: image = "person"
-        case .olympics: image = "sportscourt"
-        case .europe, .africa: image = "globe"
-        case .media: image = "play"
-        case .music: image = "music.note"
-        case .television: image = "tv"
-        default: image = "newspaper"
-        }
-        return UIImage(systemName: image)
     }
 }
