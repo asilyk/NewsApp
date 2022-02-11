@@ -23,19 +23,17 @@ class NewsTableViewController: UITableViewController {
 
         NetworkManager.shared.fetchData(from: link) { result in
             switch result {
-            case .success(let newsData):
-                DispatchQueue.main.async {
-                    self.newsData = newsData
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
+            case let .success(newsData):
+                self.newsData = newsData
+                self.tableView.reloadData()
+            case let .failure(error):
+                print(error)
             }
         }
     }
 
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         newsData?.results?.count ?? 0
     }
 
@@ -57,7 +55,7 @@ class NewsTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         guard let detailedNewsVC = segue.destination as? DetailedNewsViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
