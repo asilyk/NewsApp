@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="cRV-bt-Stm">
                                 <rect key="frame" x="119.5" y="305" width="175" height="286"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Par-yl-2aL">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Par-yl-2aL">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="48"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -33,10 +33,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="OOe-cN-lpg" kind="show" identifier="todayDataSegue" id="q9P-xT-tVx"/>
+                                            <action selector="buttonPressed:" destination="NkB-Jw-WoL" eventType="touchUpInside" id="MDl-f9-tbP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-pE-Fx5">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-pE-Fx5">
                                         <rect key="frame" x="0.0" y="119" width="175" height="48"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -49,10 +49,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="OOe-cN-lpg" kind="show" identifier="thisWeekDataSegue" id="7BF-FU-InJ"/>
+                                            <action selector="buttonPressed:" destination="NkB-Jw-WoL" eventType="touchUpInside" id="Afc-bA-ENk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obi-0K-6z3">
+                                    <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obi-0K-6z3">
                                         <rect key="frame" x="0.0" y="238" width="175" height="48"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -65,7 +65,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="OOe-cN-lpg" kind="show" identifier="thisMonthDataSegue" id="d7b-9T-77X"/>
+                                            <action selector="buttonPressed:" destination="NkB-Jw-WoL" eventType="touchUpInside" id="voY-Zw-fqX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -83,9 +83,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Most popular articles" id="W0Z-fO-Ezt"/>
                     <connections>
-                        <outlet property="thisMonthButton" destination="Obi-0K-6z3" id="hfw-lr-WSB"/>
-                        <outlet property="thisWeekButton" destination="J9s-pE-Fx5" id="2Tr-Ed-s7r"/>
-                        <outlet property="todayButton" destination="Par-yl-2aL" id="IW7-7t-VX7"/>
+                        <segue destination="OOe-cN-lpg" kind="show" identifier="showTableView" id="fFw-AE-EWa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lm-Ae-jbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -206,9 +204,6 @@
             <point key="canvasLocation" x="-1657" y="-498"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="q9P-xT-tVx"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
