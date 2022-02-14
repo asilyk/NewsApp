@@ -5,6 +5,8 @@
 //  Created by Alexander on 09.02.2022.
 //
 
+import Foundation
+
 enum Subsection: String {
     case politics = "Politics"
     case olympics = "Olympics"
@@ -26,14 +28,33 @@ enum Subsection: String {
     }
 }
 
-struct DataResult: Decodable {
-    let published_date: String?
-    let subsection: String?
+struct ArticleData: Decodable {
+    let date: String?
     let byline: String?
     let title: String?
-    let abstract: String?
+    let subsection: String?
+    let bodyText: String?
+
+    init(dataResult: [String: Any]) {
+        date = dataResult["published_date"] as? String
+        subsection = dataResult["subsection"] as? String
+        byline = dataResult["byline"] as? String
+        title = dataResult["title"] as? String
+        bodyText = dataResult["abstract"] as? String
+    }
+
+    static func getArticlesData(from value: Any) -> [ArticleData] {
+        guard let data = value as? [String: Any] else { return [] }
+        guard let articlesData = data["results"] as? [[String: Any]] else { return [] }
+
+        return articlesData.compactMap { ArticleData(dataResult: $0) }
+    }
 }
 
 struct NewsData: Decodable {
-    let results: [DataResult]?
+    let articlesData: [ArticleData]?
+
+    init(value: Any) {
+        articlesData = ArticleData.getArticlesData(from: value)
+    }
 }
