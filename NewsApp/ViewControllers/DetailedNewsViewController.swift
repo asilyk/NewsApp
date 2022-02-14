@@ -15,7 +15,7 @@ class DetailedNewsViewController: UIViewController {
     @IBOutlet private var abstractLabel: UILabel!
 
     // MARK: - Public Properties
-    var result: DataResult!
+    var result: ArticleData!
 
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class DetailedNewsViewController: UIViewController {
 
         titleLabel.text = result.title
         bylineLabel.text = result.byline
-        dateLabel.text = result.published_date
-        abstractLabel.text = result.abstract
+        dateLabel.text = result.date
+        abstractLabel.text = result.bodyText
     }
 }
