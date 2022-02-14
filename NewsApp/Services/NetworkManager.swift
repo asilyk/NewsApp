@@ -13,11 +13,11 @@ class NetworkManager {
     func fetchData(from link: String, completionHandler: @escaping (Result<NewsData, Error>) -> Void) {
         AF.request(link)
             .validate()
-            .responseDecodable(of: NewsData.self) { dataResponse in
+            .responseJSON { dataResponse in
                 switch dataResponse.result {
                 case let .success(value):
                     DispatchQueue.main.async {
-                        completionHandler(.success(value))
+                        completionHandler(.success(NewsData(value: value)))
                     }
                 case let .failure(error):
                     completionHandler(.failure(error))
