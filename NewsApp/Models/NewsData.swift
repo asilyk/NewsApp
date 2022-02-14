@@ -37,9 +37,9 @@ struct ArticleData: Decodable {
 
     init(dataResult: [String: Any]) {
         date = dataResult["published_date"] as? String
-        subsection = dataResult["subsection"] as? String
         byline = dataResult["byline"] as? String
         title = dataResult["title"] as? String
+        subsection = dataResult["subsection"] as? String
         bodyText = dataResult["abstract"] as? String
     }
 
