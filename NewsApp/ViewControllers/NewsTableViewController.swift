@@ -34,20 +34,20 @@ class NewsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        newsData?.results?.count ?? 0
+        newsData?.articlesData?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
 
-        content.text = newsData?.results?[indexPath.row].title ?? "No title"
+        content.text = newsData?.articlesData?[indexPath.row].title ?? "No title"
 
-        let author = newsData?.results?[indexPath.row].byline ?? "No author"
-        let date = newsData?.results?[indexPath.row].published_date ?? "No date"
+        let author = newsData?.articlesData?[indexPath.row].byline ?? "No author"
+        let date = newsData?.articlesData?[indexPath.row].date ?? "No date"
         content.secondaryText = "\(author)\n\(date)"
 
-        let subsection = Subsection(rawValue: newsData?.results?[indexPath.row].subsection ?? "")
+        let subsection = Subsection(rawValue: newsData?.articlesData?[indexPath.row].subsection ?? "")
         content.image = UIImage(systemName: subsection?.image ?? "newspaper")
 
         cell.contentConfiguration = content
@@ -59,6 +59,6 @@ class NewsTableViewController: UITableViewController {
         guard let detailedNewsVC = segue.destination as? DetailedNewsViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
-        detailedNewsVC.result = newsData?.results?[indexPath.row]
+        detailedNewsVC.result = newsData?.articlesData?[indexPath.row]
     }
 }
