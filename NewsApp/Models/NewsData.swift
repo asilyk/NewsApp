@@ -35,19 +35,19 @@ struct ArticleData: Decodable {
     let subsection: String?
     let bodyText: String?
 
-    init(dataResult: [String: Any]) {
-        date = dataResult["published_date"] as? String
-        byline = dataResult["byline"] as? String
-        title = dataResult["title"] as? String
-        subsection = dataResult["subsection"] as? String
-        bodyText = dataResult["abstract"] as? String
+    init(data: [String: Any]) {
+        date = data["published_date"] as? String
+        byline = data["byline"] as? String
+        title = data["title"] as? String
+        subsection = data["subsection"] as? String
+        bodyText = data["abstract"] as? String
     }
 
     static func getArticlesData(from value: Any) -> [ArticleData] {
         guard let data = value as? [String: Any] else { return [] }
         guard let articlesData = data["results"] as? [[String: Any]] else { return [] }
 
-        return articlesData.compactMap { ArticleData(dataResult: $0) }
+        return articlesData.compactMap { ArticleData(data: $0) }
     }
 }
 

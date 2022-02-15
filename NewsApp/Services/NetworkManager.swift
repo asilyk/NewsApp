@@ -15,11 +15,11 @@ class NetworkManager {
             .validate()
             .responseJSON { dataResponse in
                 switch dataResponse.result {
-                case let .success(value):
+                case .success(let value):
                     DispatchQueue.main.async {
                         completionHandler(.success(NewsData(value: value)))
                     }
-                case let .failure(error):
+                case .failure(let error):
                     completionHandler(.failure(error))
                 }
             }

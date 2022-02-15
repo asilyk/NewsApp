@@ -23,10 +23,10 @@ class NewsTableViewController: UITableViewController {
 
         NetworkManager.shared.fetchData(from: link) { result in
             switch result {
-            case let .success(newsData):
+            case .success(let newsData):
                 self.newsData = newsData
                 self.tableView.reloadData()
-            case let .failure(error):
+            case .failure(let error):
                 print(error)
             }
         }
